@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Flowers for You 🌸</title>
+    
+    <style>
+        /* CSS RESET & BASE */
+        *, *::after, *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Palette Pink Aesthetic */
+            --bg-color: #0d0208; /* Hitam tint maroon */
+            --pink-light: #ffb3c1;
+            --pink-medium: #ff85a2;
+            --pink-dark: #ff4d6d;
+            --stem-color: #4a2c33; /* Warna maroon gelap untuk tangkai */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* PESAN TEXT */
+        .special-msg {
+            position: absolute;
+            top: 12%;
+            width: 100%;
+            text-align: center;
+            color: var(--pink-light);
+            text-shadow: 0 0 15px var(--pink-dark);
+            z-index: 100;
+            animation: fadeInDown 3s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BACKGROUND MALAM */
+        .night {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(ellipse at top, transparent 0%, var(--bg-color)),
+            radial-gradient(ellipse at bottom, var(--bg-color), rgba(255, 133, 162, 0.2));
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* --- MENIMPA CSS ASLI UNTUK TEMA PINK --- */
+
+        .flowers {
+            position: relative;
+            transform: scale(0.9);
+            z-index: 10;
+            animation: swaying 6s ease-in-out infinite; 
+        }
+
+        @keyframes swaying {
+            0%, 100% { transform: rotate(-1.5deg) scale(0.9); }
+            50% { transform: rotate(1.5deg) scale(0.93); }
+        }
+
+        .flower__leaf {
+            background-image: linear-gradient(to top, var(--pink-dark), var(--pink-light), #fff) !important;
+            opacity: 0.95;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .flower__white-circle {
+            background-color: #fff !important;
+            box-shadow: 0 0 20px 8px rgba(255, 133, 162, 0.9) !important;
+        }
+
+        .flower__line, 
+        .flower__g-long__top, 
+        .flower__g-long__bottom,
+        .flower__g-front__line,
+        .flower__grass--top,
+        .flower__grass--bottom {
+            background-image: linear-gradient(to left, var(--stem-color), var(--pink-medium)) !important;
+            opacity: 1 !important;
+        }
+
+        .flower__line__leaf,
+        .flower__grass__leaf,
+        .flower__g-front__leaf,
+        .flower__g-fr__leaf,
+        .leaf {
+            background-image: linear-gradient(to top, var(--stem-color), var(--pink-medium)) !important;
+            opacity: 1 !important;
+        }
+
+        .flower__light {
+            background-color: #fff !important;
+            box-shadow: 0 0 12px 3px var(--pink-light) !important;
+            filter: blur(1px) !important;
+        }
+
+        .flower__grass--bottom, 
+        .flower__grass--top {
+            background-image: linear-gradient(to top, var(--stem-color), var(--bg-color)) !important;
+        }
+
+        .flower__leafs {
+            animation: blooming 2.5s cubic-bezier(0.19, 1, 0.22, 1) backwards;
+        }
+
+        @keyframes blooming {
+            0% { transform: scale(0); opacity: 0; }
+        }
+
+        /* Sembunyikan Iframe agar tetap aesthetic */
+        #audio-container {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body class="container">
+    <div class="night"></div>
+
+    <div class="special-msg">
+        <h1 style="font-size: 2.8rem; font-weight: 900; letter-spacing: 2px;">ya gitudeh</h1>
+        <p style="font-style: italic; margin-top: 10px; font-size: 1.1rem; color: #fbb1bd;">
+            adalah pokoknya
+        </p>
+    </div>
+
+    <div class="flowers">
+      <div class="flower flower--1">
+        <div class="flower__leafs flower__leafs--1">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+          <div class="flower__light flower__light--1"></div>
+          <div class="flower__light flower__light--2"></div>
+          <div class="flower__light flower__light--3"></div>
+          <div class="flower__light flower__light--4"></div>
+          <div class="flower__light flower__light--5"></div>
+          <div class="flower__light flower__light--6"></div>
+          <div class="flower__light flower__light--7"></div>
+          <div class="flower__light flower__light--8"></div>
+        </div>
+        <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+            <div class="flower__line__leaf flower__line__leaf--3"></div>
+            <div class="flower__line__leaf flower__line__leaf--4"></div>
+            <div class="flower__line__leaf flower__line__leaf--5"></div>
+            <div class="flower__line__leaf flower__line__leaf--6"></div>
+        </div>
+      </div>
+      <div class="flower flower--2">
+        <div class="flower__leafs flower__leafs--2">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+        </div>
+        <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+        </div>
+      </div>
+
+      <div class="flower flower--3">
+        <div class="flower__leafs flower__leafs--3">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__white-circle"></div>
+        </div>
+        <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+        </div>
+      </div>
+      </div>
+
+    <div id="audio-container">
+        <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2286027866&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+        </iframe>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Memastikan audio mencoba play kembali jika user berinteraksi
+        document.body.addEventListener('click', function() {
+            var iframe = document.getElementById('sc-player');
+            var src = iframe.src;
+            if (src.indexOf('auto_play=false') > -1) {
+                iframe.src = src.replace('auto_play=false', 'auto_play=true');
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
